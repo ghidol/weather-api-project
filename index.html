@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <title>Weather API</title>
-  </head>
-  
-  <body>
-    <div class="center-container">
 
-      <div class="top-header">
-        <h1>The World's Simplest Weather App</h1>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <title>Weather API</title>
+</head>
 
-      <form id="form">
+<body>
+  <div class="center-container">
 
-        <input id="my-input" type="text" placeholder="Search for a city" autocomplete="off">
-        <button class="button" type="submit">Search</button>
-        <br>
-        <div id="user-message"></div>
-        <br>
-      </form>
-
-      <div class="parent-container">
-
-      </div>
-
-      <div id="hidden-box">
-
-        
-      </div>
-      
+    <div class="top-header">
+      <h1>The World's Simplest Weather App</h1>
     </div>
-    
 
-    <script type="module" src="/main.js"></script>
-  </body>
+    <form id="form">
+
+      <input id="my-input" type="text" placeholder="Search for a city" autocomplete="off">
+      <button class="button" type="submit">Search</button>
+      <br>
+      <div id="user-message"></div>
+      <br>
+    </form>
+
+
+    <div class="parent-container-location">
+
+    </div>
+
+    <div class="current-weather">
+
+    </div>
+
+
+
+    <div class="parent-container-daily-weather">
+
+
+    </div>
+
+
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>

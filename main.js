@@ -1,42 +1,63 @@
 import './style.css'
 
-//Function to fetch locations
-const fetchLocation = async () => {
+//Functon to fetch locations
+const fetchLocation = async (location) => {
 
   try {
-    let response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=bronx&count=8&language=en&format=json`,);
+    const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${location}&count=8&language=en&format=json`,);
     console.log(response)
 
     if (response.status === 200) {
-      let data = await response.json();
+      const data = await response.json();
       console.log(data);
 
-      let locations = data.results
+      const locations = data.results
 
       return locations;
     }
 
-    // if (data.results){
-    //   console.log(data.results)
-    // }
-    // else {
-    //   console.log('no results to show!')
-    // }
   }
   catch (error) {
     console.log(error);
   }
 
 
-}
+};
+
+
+//Functon to fetch weather
+const fetchWeather = async (lat, long) => {
+
+  try {
+    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true&temperature_unit=fahrenheit&timezone=auto`,);
+    console.log(response);
+
+    if (response.status === 200) {
+      const data = await response.json();
+      console.log(data);
+
+      return data;
+    }
+
+  }
+  catch (error) {
+    console.log(error);
+  }
+
+
+};
+
+
+
+
 
 
 
 //Function to display locations.
-const displayLocations = async () => {
-  const showLocations = await fetchLocation();
+const displayLocations = async (location) => {
+  const showLocations = await fetchLocation(location);
 
-  console.log(showLocations)
+  console.log(showLocations);
 
   //
   //Handle error here if no results found later
@@ -48,31 +69,118 @@ const displayLocations = async () => {
       data-lat-value=${item.latitude} 
       data-long-value=${item.longitude}>
 
-      <h2>State: ${item.admin1} </h2>
-      <h2>Name: ${item.name} </h2>
-      <h2>Country: ${item.country} </h2>
-      <p>lat: ${item.latitude} </p>
-      <p>long: ${item.longitude}</p>
+      <div class="">
+        <h3>State:</h3>
+        <p>${item.admin1} </p>
+      </div>
+
+      <div class="">
+        <h3>Name:</h3>
+        <p>${item.name}</p>
+      </div>
+     
+      <div class="">
+        <h3>Country:</h3>
+        <p>${item.country}</p>
+      </div>
       
     </div>`
   ).join("");
 
-  document.querySelector(".parent-container").innerHTML = displayLocation;
+  document.querySelector(".parent-container-location").innerHTML = displayLocation;
 
-  document.querySelectorAll(".individual-location").forEach((item) => {
-    item.addEventListener("click", async function () {
-      const lat = this.getAttribute("data-lat-value");
-      const long = this.getAttribute("data-long-value");
+};
+
+
+//Adds clicks to divs and displays weather info
+function addHandleLocationClicks() {
+  document.querySelectorAll(".individual-location").forEach(item => {
+    item.addEventListener("click", async () => {
+      const lat = item.getAttribute("data-lat-value");
+      const long = item.getAttribute("data-long-value");
 
       console.log(lat, long)
 
-    })
+      const showWeather = await fetchWeather(lat, long);
+      console.log(showWeather)
+
+      //use displayWeather() here and remove return below.
+      // return showWeather
+      await displayWeather(showWeather);
+
+
+
+
+    });
+  });
+};
+
+
+
+
+
+
+
+
+
+const displayWeather = async (data) => {
+  //use map or forEach to go over hourly weather for 7 days here using #daily-weather
+
+  //Display current weather and return to .current-weather div
+  const currentWeather = document.querySelector(".current-weather");
+  const currentTime = data.current_weather.time;
+  const timeConverted = String(new Date(currentTime));
+  currentWeather.innerHTML = ` 
+  <div>
+    <h3 id="weather-main">${timeConverted}</h3>
+    <h3 id="numeric-temp">${data.current_weather.temperature}℉</h3>
+    
+  </div>`
+
+
+
+  //Display 7 day weather from hourly
+  const dailyWeather = document.querySelector(".parent-container-daily-weather");
+
+  dailyWeather.innerHTML = '';
+
+  const { time, temperature_2m_max, temperature_2m_min, weathercode } = data.daily;
+
+  time.forEach((item, index) => {
+    dailyWeather.innerHTML +=
+      `<div class="individual-daily-weather">
+        <h3 id="">${item}</h3>
+        <h3 id="">${weathercode[index]}</h3>
+        <h3 id="">High ${temperature_2m_max[index]}℉</h3>
+        <h3 id="">Low ${temperature_2m_min[index]}℉</h3>
+        
+      </div>`
+
+
   });
 
-}
+
+};
 
 
-displayLocations();
+
+
+
+
+const form = document.getElementById("form");
+const input = document.getElementById("my-input");
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const submittedValue = input.value;
+
+  await displayLocations(submittedValue);
+
+  addHandleLocationClicks();
+
+
+});
+
 
 
 
