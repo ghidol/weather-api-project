@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+html,
+body {
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+}
+
+body {
+  opacity: 0;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+
+}
+
+
+/* max h, w */
+.center-container {
+  border-color: rgb(163, 217, 255);
+  border-style: solid;
+  padding: 80px;
+  max-height: 90vh;
+  max-width: 60vw;
+  background: rgba(0, 0, 0, .9);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+  border-radius: 40px;
+}
+
+.center-container,
+input {
+  color: azure;
+}
+
+
+
+
+
+input {
+  background: none;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid white;
+  height: 10px;
+  padding: 8px 18px;
+  margin: 20px auto 20px auto;
+
+  font-size: 16px;
+}
+
+::placeholder {
+  font-size: 16px;
+  color: rgb(163, 255, 255);
+}
+
+
+.button {
+  background: rgb(163, 217, 255);
+  border-radius: 990px;
+  box-shadow: rgb(163, 217, 255) 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 6px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  margin-left: 4px;
+}
+
+
+img {
+  border: gold solid 1px;
+  max-width: 80px;
+}
+
+.parent-container-location {
+  border: white solid 1px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  max-width: 100%;
+  gap: 0 10px;
+
+}
+
+.individual-location {
+  border: red solid 1px;
+  display: flex;
+  flex-direction: column;
+  width: 8rem;
+  padding: 20px 0px;
+}
+
+
+.parent-container-daily-weather {
+  border: white solid 1px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  max-width: 100%;
+  gap: 0 10px;
+}
+
+
+.individual-daily-weather {
+  border: red solid 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 8rem;
+  padding: 20px 0px;
+  white-space: nowrap;
+}
+
+#user-message{
+  text-decoration: underline;
+  font-weight: 900;
+  color:rgb(255, 247, 170);
+  font-size: large;
+}
+
+/* Media queries */
+@media (min-width: 100px) and (max-width: 520px) {
+  .parent-container-daily-weather {
+    /* max-width: 0vw; */
+    /* flex-wrap: nowrap; */
+  }
+
+  img {
+    max-width: 40px;
+  }
+
+  .individual-location {
+    padding: 2px;
+  }
+
+  .individual-daily-weather {
+    padding: 2px;
+    white-space: unset;
+  }
+
+
+
+  .top-header,.individual-location , .current-weather, .parent-container-daily-weather, #user-message {
+    font-size: x-small;
+  }
+
+  .parent-container-daily-weather, .parent-container-location {
+    gap: 0;
+  }
+
+
+  .center-container {
+    max-width: 95vw;
+    max-height: 100vh;
+    padding: 50px;
+    overflow: none;
+  }
+}
+
+
+@media (min-width: 520px) and (max-width: 920px) {
+
+  img {
+    max-width: 40px;
+  }
+
+  .individual-location {
+    padding: 2px;
+  }
+
+  .individual-daily-weather {
+    margin: 4px;
+    padding: 2px;
+    white-space: unset;
+  }
+
+
+
+  .top-header,.individual-location , .parent-container-daily-weather, #user-message {
+    font-size: small;
+  }
+
+  .center-container {
+    max-width: 90vw;
+    max-height: 100vh;
+    padding: 50px;
+    overflow: none;
+  }
+
+}
+
+
+
+@media (min-width: 920px) and (max-width: 1400px) {
+
+  img {
+    max-width: 60px;
+  }
+
+  .center-container {
+    max-width: 90vw;
+  }
+}
