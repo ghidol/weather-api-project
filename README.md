@@ -1,7 +1,7 @@
 # 🌤️ The Worlds Simplest Weather App 🌤️
 ## Minimal and simplistic
 
-This is the Simplest Weather App, a very straightforward user-friendly app that brings weather forcasts right to your fingertips. It is inspired by the sleek design of iOS. This application is made to be as simple to use as possible. 
+This is the Simplest Weather App, a very straightforward user-friendly app that brings weather forcasts right to your fingertips. It is inspired by the sleek design of iOS. This application is made to be as simple to use as possible. Weather fetched from [open-meteo API](https://open-meteo.com)
 
 Simple 3 step process to search:
 1. Search by typing in the name of the city of your choice.
