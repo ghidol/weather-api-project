@@ -18,11 +18,15 @@ body {
   align-items: center;
   text-align: center;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
 
 }
 
 
-/* max h, w */
+
 .center-container {
   border-color: rgb(163, 217, 255);
   border-style: solid;
@@ -87,12 +91,11 @@ input {
 
 
 img {
-  border: gold solid 1px;
   max-width: 80px;
 }
 
 .parent-container-location {
-  border: white solid 1px;
+  /* border: white solid 1px; */
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
@@ -102,7 +105,9 @@ img {
 }
 
 .individual-location {
-  border: red solid 1px;
+  border-color: rgb(163, 217, 255);
+  border-style: solid;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   width: 8rem;
@@ -111,7 +116,7 @@ img {
 
 
 .parent-container-daily-weather {
-  border: white solid 1px;
+  /* border: white solid 1px; */
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
@@ -121,7 +126,9 @@ img {
 
 
 .individual-daily-weather {
-  border: red solid 1px;
+  border-color: rgb(163, 217, 255);
+  border-style: solid;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;

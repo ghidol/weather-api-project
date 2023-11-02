@@ -104,7 +104,7 @@ const displayLocations = async (location) => {
 };
 
 
-//Adds clicks to divs and displays weather info
+//Function adds clicks to divs and displays weather info
 const addHandleLocationClicks = () => {
   document.querySelectorAll(".individual-location").forEach(item => {
     item.addEventListener("click", async () => {
