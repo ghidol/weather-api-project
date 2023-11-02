@@ -112,6 +112,7 @@ img {
   flex-direction: column;
   width: 8rem;
   padding: 20px 0px;
+  cursor: pointer;
 }
 
 
@@ -136,9 +137,6 @@ img {
   padding: 20px 0px;
 }
 
-.weather-date {
-  white-space: nowrap;
-}
 
 #user-message{
   text-decoration: underline;
@@ -148,7 +146,7 @@ img {
 }
 
 /* Media queries */
-@media (min-width: 100px) and (max-width: 520px) {
+@media (min-width: 100px) and (max-width: 700px) {
   
   img {
     max-width: 40px;
@@ -183,7 +181,7 @@ img {
 }
 
 
-@media (min-width: 520px) and (max-width: 920px) {
+@media (min-width: 700px) and (max-width: 920px) {
 
   img {
     max-width: 40px;
@@ -194,7 +192,7 @@ img {
   }
 
   .individual-daily-weather {
-    margin: 4px;
+    /* margin: 4px; */
     padding: 2px;
     white-space: unset;
   }
@@ -210,6 +208,11 @@ img {
     max-height: 100vh;
     padding: 50px;
     overflow: none;
+  }
+
+  .weather-date {
+    white-space: nowrap;
+    font-size: 12px;
   }
 
 }
