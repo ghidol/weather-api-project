@@ -134,6 +134,9 @@ img {
   align-items: center;
   width: 8rem;
   padding: 20px 0px;
+}
+
+.weather-date {
   white-space: nowrap;
 }
 
@@ -146,11 +149,7 @@ img {
 
 /* Media queries */
 @media (min-width: 100px) and (max-width: 520px) {
-  .parent-container-daily-weather {
-    /* max-width: 0vw; */
-    /* flex-wrap: nowrap; */
-  }
-
+  
   img {
     max-width: 40px;
   }
